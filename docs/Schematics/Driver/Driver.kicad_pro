@@ -290,48 +290,84 @@
       ""
     ],
     [
-      "1bf01b96-3eca-4eb5-b495-6fa2f6a3737a",
-      "Dual_VNH3SP30"
-    ],
-    [
       "397d4913-290e-42d2-8a0b-94687e798259",
       "Motor Controller"
     ],
     [
-      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
-      "Motor Controller1"
+      "beaab9be-ccdc-4b38-ab36-75ff11f07b55",
+      "Motor Driver"
     ],
     [
-      "7a80c9ff-afb2-4fa1-80ad-b1578450d335",
-      "Dual_VNH3SP31"
-    ],
-    [
-      "397d4913-290e-42d2-8a0b-94687e798259",
-      "Motor Controller"
-    ],
-    [
-      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
-      "Motor Controller1"
-    ],
-    [
-      "a97307ce-7430-4820-9a0c-56578a45e793",
-      "Dual_VNH3SP32"
-    ],
-    [
-      "397d4913-290e-42d2-8a0b-94687e798259",
-      "Motor Controller"
-    ],
-    [
-      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
-      "Motor Controller1"
-    ],
-    [
-      "2c697935-a436-4516-a7dd-74b2591eccc0",
+      "b4056e8e-2685-4bce-b62b-c0b98923e0d3",
       "Level Converter"
     ],
     [
-      "93a8a151-a135-4286-9d78-990f44ef5d26",
+      "41db6304-e5f7-4f3b-9539-e02787df3694",
+      "Dual_VNH3SP30"
+    ],
+    [
+      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
+      "Motor Controller1"
+    ],
+    [
+      "73a52613-ecb4-4016-9dfa-6685718f0c6b",
+      "Arty Z7"
+    ],
+    [
+      "274eb3b6-bb03-4492-83f9-7a65f0f354cd",
       "Level Converter1"
+    ],
+    [
+      "397d4913-290e-42d2-8a0b-94687e798259",
+      "Motor Controller"
+    ],
+    [
+      "973eb05a-d893-4a45-8019-88ddec6f62cc",
+      "Motor Driver1"
+    ],
+    [
+      "b4056e8e-2685-4bce-b62b-c0b98923e0d3",
+      "Level Converter"
+    ],
+    [
+      "41db6304-e5f7-4f3b-9539-e02787df3694",
+      "Dual_VNH3SP30"
+    ],
+    [
+      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
+      "Motor Controller1"
+    ],
+    [
+      "274eb3b6-bb03-4492-83f9-7a65f0f354cd",
+      "Level Converter1"
+    ],
+    [
+      "397d4913-290e-42d2-8a0b-94687e798259",
+      "Motor Controller"
+    ],
+    [
+      "268ca480-7732-4e20-9d68-7fe8afa85e7b",
+      "Motor Driver2"
+    ],
+    [
+      "b4056e8e-2685-4bce-b62b-c0b98923e0d3",
+      "Level Converter"
+    ],
+    [
+      "41db6304-e5f7-4f3b-9539-e02787df3694",
+      "Dual_VNH3SP30"
+    ],
+    [
+      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
+      "Motor Controller1"
+    ],
+    [
+      "274eb3b6-bb03-4492-83f9-7a65f0f354cd",
+      "Level Converter1"
+    ],
+    [
+      "bdc75888-4a3b-4bfd-a3a8-a6c503515cd3",
+      "Wheel Encoders"
     ]
   ],
   "text_variables": {}
