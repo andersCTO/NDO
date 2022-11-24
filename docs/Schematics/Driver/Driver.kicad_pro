@@ -368,6 +368,14 @@
     [
       "bdc75888-4a3b-4bfd-a3a8-a6c503515cd3",
       "Wheel Encoders"
+    ],
+    [
+      "7281d89a-0f3f-482d-a700-61e345dbd3cd",
+      "ESP Heart Beat"
+    ],
+    [
+      "7053b41f-658a-483a-8314-b36fb89ae537",
+      "OLED"
     ]
   ],
   "text_variables": {}
