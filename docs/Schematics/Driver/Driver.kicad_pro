@@ -277,6 +277,15 @@
       "version": 1
     },
     "net_format_name": "",
+    "ngspice": {
+      "fix_include_paths": true,
+      "fix_passive_vals": false,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 0,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "",
     "spice_adjust_passive_values": false,
@@ -290,24 +299,16 @@
       ""
     ],
     [
-      "397d4913-290e-42d2-8a0b-94687e798259",
-      "Motor Controller"
-    ],
-    [
       "beaab9be-ccdc-4b38-ab36-75ff11f07b55",
       "Motor Driver"
     ],
     [
       "b4056e8e-2685-4bce-b62b-c0b98923e0d3",
-      "Level Converter"
+      "Level Converter0"
     ],
     [
       "41db6304-e5f7-4f3b-9539-e02787df3694",
       "Dual_VNH3SP30"
-    ],
-    [
-      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
-      "Motor Controller1"
     ],
     [
       "73a52613-ecb4-4016-9dfa-6685718f0c6b",
@@ -318,32 +319,20 @@
       "Level Converter1"
     ],
     [
-      "397d4913-290e-42d2-8a0b-94687e798259",
-      "Motor Controller"
-    ],
-    [
       "973eb05a-d893-4a45-8019-88ddec6f62cc",
       "Motor Driver1"
     ],
     [
       "b4056e8e-2685-4bce-b62b-c0b98923e0d3",
-      "Level Converter"
+      "Level Converter0"
     ],
     [
       "41db6304-e5f7-4f3b-9539-e02787df3694",
       "Dual_VNH3SP30"
     ],
     [
-      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
-      "Motor Controller1"
-    ],
-    [
       "274eb3b6-bb03-4492-83f9-7a65f0f354cd",
       "Level Converter1"
-    ],
-    [
-      "397d4913-290e-42d2-8a0b-94687e798259",
-      "Motor Controller"
     ],
     [
       "268ca480-7732-4e20-9d68-7fe8afa85e7b",
@@ -351,15 +340,11 @@
     ],
     [
       "b4056e8e-2685-4bce-b62b-c0b98923e0d3",
-      "Level Converter"
+      "Level Converter0"
     ],
     [
       "41db6304-e5f7-4f3b-9539-e02787df3694",
       "Dual_VNH3SP30"
-    ],
-    [
-      "930b5bc0-ddd4-4909-925f-3ad356ef1234",
-      "Motor Controller1"
     ],
     [
       "274eb3b6-bb03-4492-83f9-7a65f0f354cd",
@@ -376,6 +361,18 @@
     [
       "7053b41f-658a-483a-8314-b36fb89ae537",
       "OLED"
+    ],
+    [
+      "73583ba9-cce9-46ae-977d-feb733529403",
+      "Voltage_dividers"
+    ],
+    [
+      "73583ba9-cce9-46ae-977d-feb733529403",
+      "Voltage_dividers"
+    ],
+    [
+      "73583ba9-cce9-46ae-977d-feb733529403",
+      "Voltage_dividers"
     ]
   ],
   "text_variables": {}
