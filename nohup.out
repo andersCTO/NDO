@@ -1,0 +1,40 @@
+/tmp/.mount_FreeCAZlT9Lo
+0.761757 <asm3.main> init_gui.py(14): no solver backend found
+Program received signal SIGSEGV, Segmentation fault.
+#0  /usr/lib/libc.so.6(+0x38a00) [0x7fb213851a00]
+#1  0x7fb2160fc811 in Gui::Application::importFrom(char const*, char const*, char const*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x2e1
+#2  0x7fb21620c119 in StdCmdImport::activated(int) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x639
+#3  0x7fb216202381 in Gui::Command::_invoke(int, bool) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x331
+#4  0x7fb216202884 in Gui::Command::invoke(int, Gui::Command::TriggerSource) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x154
+#5  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Core.so.5(+0x1dfb27) [0x7fb213fdfb27]
+#6  0x7fb214b65132 in QAction::triggered(bool) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0x32
+#7  0x7fb214b66c40 in QAction::activate(QAction::ActionEvent) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0xc6
+#8  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5(+0x25a611) [0x7fb214c5a611]
+#9  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5(+0x25f590) [0x7fb214c5f590]
+#10  0x7fb214b9444b in QWidget::event(QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0x133
+#11  0x7fb214b6a0f7 in QApplicationPrivate::notify_helper(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0xd9
+#12  0x7fb214b6e3ee in QApplication::notify(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0x66c
+#13  0x7fb2161942d9 in Gui::GUIApplication::notify(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x89
+#14  0x7fb213fc2608 in QCoreApplication::notifyInternal2(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Core.so.5+0x8e
+#15  0x7fb214b6d9f7 in QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool, bool) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0x283
+#16  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5(+0x1a31f4) [0x7fb214ba31f4]
+#17  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5(+0x1a48fd) [0x7fb214ba48fd]
+#18  0x7fb214b6a0f7 in QApplicationPrivate::notify_helper(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Widgets.so.5+0xd9
+#19  0x7fb2161942d9 in Gui::GUIApplication::notify(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x89
+#20  0x7fb213fc2608 in QCoreApplication::notifyInternal2(QObject*, QEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Core.so.5+0x8e
+#21  0x7fb2145094d0 in QGuiApplicationPrivate::processMouseEvent(QWindowSystemInterfacePrivate::MouseEvent*) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Gui.so.5+0x6ae
+#22  0x7fb2144f5f29 in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Gui.so.5+0x57
+#23  /tmp/.mount_FreeCAZlT9Lo/usr/plugins/platforms/../../lib/libQt5XcbQpa.so.5(+0x55294) [0x7fb20bf79294]
+#24  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/./libglib-2.0.so.0(g_main_context_dispatch+0x25c) [0x7fb213d1b1bc]
+#25  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/./libglib-2.0.so.0(+0x58489) [0x7fb213d1b489]
+#26  /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/./libglib-2.0.so.0(g_main_context_iteration+0x31) [0x7fb213d1b551]
+#27  0x7fb213ff33f3 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Core.so.5+0x5b
+#28  0x7fb213fc018a in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Core.so.5+0x186
+#29  0x7fb213fc43b5 in QCoreApplication::exec() from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libQt5Core.so.5+0x107
+#30  0x7fb21610351b in Gui::Application::runApplication() from /tmp/.mount_FreeCAZlT9Lo/usr/bin/../lib/libFreeCADGui.so+0x44b
+#31  /tmp/.mount_FreeCAZlT9Lo/usr/bin/FreeCADLink(+0x4786) [0x556ca6a9f786]
+#32  /usr/lib/libc.so.6(+0x23290) [0x7fb21383c290]
+#33  /usr/lib/libc.so.6(__libc_start_main+0x8a) [0x7fb21383c34a]
+#34  /tmp/.mount_FreeCAZlT9Lo/usr/bin/FreeCADLink(+0x4b15) [0x556ca6a9fb15]
+FreeCAD 0.20, Libs: 2022.1128R26244 +5318 (Git)
+<Import> ImportOCAF2.cpp(586): free shape count 55
