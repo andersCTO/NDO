@@ -5,9 +5,9 @@
   (paper "A4")
 
   (title_block
-    (title "Arty Z7 IO expander card")
+    (title "Arty Z7 IO Board")
     (date "2022-12-24")
-    (rev "0.1")
+    (rev "${VER}")
     (company "HiQ")
   )
 
