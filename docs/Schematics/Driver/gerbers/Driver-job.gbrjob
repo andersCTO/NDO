@@ -3,19 +3,19 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "(6.0.9)"
+      "Version": "(6.0.10)"
     },
-    "CreationDate": "2022-12-28T12:51:09+01:00"
+    "CreationDate": "2022-12-29T21:48:34+01:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "Driver",
       "GUID": "44726976-6572-42e6-9b69-6361645f7063",
-      "Revision": "0.1"
+      "Revision": "1.0"
     },
     "Size": {
-      "X": 116.2,
-      "Y": 107.2
+      "X": 116.05,
+      "Y": 107.05
     },
     "LayerNumber": 4,
     "BoardThickness": 4.69,
