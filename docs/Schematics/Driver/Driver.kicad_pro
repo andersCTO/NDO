@@ -379,7 +379,7 @@
       "netlist": "./",
       "specctra_dsn": "",
       "step": "",
-      "vrml": ""
+      "vrml": "Driver.wrl"
     },
     "page_layout_descr_file": ""
   },
