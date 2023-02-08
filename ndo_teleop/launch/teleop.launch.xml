@@ -1,0 +1,17 @@
+<launch>
+
+    <let name="config_locks"  value="$(find-pkg-share ndo_teleop)/config/twist_mux_locks.yaml"/>
+    <let name="config_topics" value="$(find-pkg-share ndo_teleop)/config/twist_mux_topics.yaml"/>
+
+    <node pkg="teleop_twist_keyboard" exec="teleop_twist_keyboard" name="teleop_key_node" launch-prefix="xterm -e">
+        <remap from="cmd_vel" to="key_vel"/>
+    </node>
+    <node pkg="teleop_twist_joy" exec="teleop_node" name="teleop_joy_node">
+        <remap from="cmd_vel" to="joy_vel"/>
+    </node>
+    <node pkg="twist_mux" exec="twist_mux" name="twist_mux" output="screen">
+        <param from="$(var config_locks)"/>
+        <param from="$(var config_topics)"/>
+        <remap from="cmd_vel_out" to="cmd_vel"/>
+    </node>
+</launch>
