@@ -1,0 +1,27 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid 2bc636f5-0cba-4ff0-8739-08bf3dc0336e)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "SCL" (shape input) (at 172.72 80.01 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 31409c3d-dfe1-4d43-9f8d-8bf93e71a94b)
+  )
+  (hierarchical_label "VCC(3v3)" (shape input) (at 172.72 77.47 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 43d5183e-60c3-401c-82d9-d95587a19cf1)
+  )
+  (hierarchical_label "GND" (shape input) (at 172.72 74.93 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 69ba5e89-92ce-4ee1-9bc8-1802a02306ce)
+  )
+  (hierarchical_label "SDA" (shape input) (at 172.72 82.55 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid cf47210a-b0db-41cc-91cd-92052eebd25d)
+  )
+)
