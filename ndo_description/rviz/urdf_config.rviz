@@ -19,7 +19,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Name: Grid
-    - Alpha: 0.6
+    - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Description Topic:
         Depth: 5
@@ -33,7 +33,7 @@ Visualization Manager:
     - Class: rviz_default_plugins/TF
       Enabled: true
       Name: TF
-      Marker Scale: 0.3
+      Marker Scale: 0.2
       Show Arrows: true
       Show Axes: true
       Show Names: true
