@@ -12,7 +12,7 @@ controller_manager:
 diff_ctrl:
   ros__parameters:
     publish_rate: 30.0
-    base_frame_id: base_footprint
+    base_frame_id: base_link
     enable_odom_tf: true
     left_wheel_names:
       - frontwhl_l_joint
@@ -28,5 +28,5 @@ diff_ctrl:
 
     use_stamped_vel: false
 
-joint_broad:
-  ros__parameters:
+#joint_broad:
+#  ros__parameters:
