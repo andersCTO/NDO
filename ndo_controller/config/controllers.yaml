@@ -1,0 +1,32 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 30 # Hz
+    use_sim_time: true
+
+    diff_ctrl:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+diff_ctrl:
+  ros__parameters:
+    publish_rate: 30.0
+    base_frame_id: base_footprint
+    enable_odom_tf: true
+    left_wheel_names:
+      - frontwhl_l_joint
+      - middlewhl_l_joint
+      - backwhl_l_joint
+    right_wheel_names:
+      - frontwhl_r_joint
+      - middlewhl_r_joint
+      - backwhl_r_joint
+    wheel_seperation: 0.15
+    wheel_radius: 0.063
+    wheels_per_side: 3
+
+    use_stamped_vel: false
+
+joint_broad:
+  ros__parameters:

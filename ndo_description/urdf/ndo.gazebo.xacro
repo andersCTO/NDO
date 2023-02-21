@@ -1,0 +1,42 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_sim">
+    <gazebo>        
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <parameters>$(find ndo_controller)/config/controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+    <!-- Spring stiffness in N/m -->
+    <xacro:property name="spring_stiffness" value="4"/>
+    <gazebo reference="frontwhl_l_adptr_joint">
+        <implicitSpringDamper>true</implicitSpringDamper>
+        <springStiffness>${spring_stiffness}</springStiffness>
+        <springReference>0</springReference>
+    </gazebo>
+    <gazebo reference="frontwhl_r_adptr_joint">
+        <implicitSpringDamper>true</implicitSpringDamper>
+        <springStiffness>${spring_stiffness}</springStiffness>
+        <springReference>0</springReference>
+    </gazebo>
+    <gazebo reference="middlewhl_l_adptr_joint">
+        <implicitSpringDamper>true</implicitSpringDamper>
+        <springStiffness>${spring_stiffness}</springStiffness>
+        <springReference>${pi/15}</springReference>
+    </gazebo>
+    <gazebo reference="middlewhl_r_adptr_joint">
+        <implicitSpringDamper>true</implicitSpringDamper>
+        <springStiffness>${spring_stiffness}</springStiffness>
+        <springReference>${-pi/15}</springReference>
+    </gazebo>
+    <gazebo reference="backwhl_l_adptr_joint">
+        <implicitSpringDamper>true</implicitSpringDamper>
+        <springStiffness>${spring_stiffness}</springStiffness>
+        <springReference>0</springReference>
+    </gazebo>
+    <gazebo reference="backwhl_r_adptr_joint">
+        <implicitSpringDamper>true</implicitSpringDamper>
+        <springStiffness>${spring_stiffness}</springStiffness>
+        <springReference>0</springReference>
+    </gazebo>
+</robot>

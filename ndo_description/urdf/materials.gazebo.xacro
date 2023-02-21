@@ -1,0 +1,8 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_materials">
+    
+    <gazebo reference="base_link">
+        <material>Gazebo/Turquoise</material>
+    </gazebo>
+    
+
+</robot>

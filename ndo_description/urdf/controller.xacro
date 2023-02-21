@@ -1,0 +1,37 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_ctrl">
+    <xacro:arg name="use_sim_ctrl" default="false"/>
+    <xacro:macro name="ctrl_wheel" params="joint_name">
+        <joint name="${joint_name}_joint">
+            <command_interface name="velocity">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+        </joint>
+        <joint name="${joint_name}_adptr_joint">
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+        </joint>
+    </xacro:macro>
+
+    <xacro:unless value="$(arg use_sim_ctrl)">
+        <!-- TODO PUT REAL CONTROLLER HERE -->
+    </xacro:unless>
+
+    <xacro:if value="$(arg use_sim_ctrl)">
+        <!-- Gazebo simulation controller -->
+        <ros2_control name="GazeboSystem" type="system">
+            <hardware>
+                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            </hardware>
+
+            <xacro:ctrl_wheel joint_name="frontwhl_l"/>
+            <xacro:ctrl_wheel joint_name="frontwhl_r"/>
+            <xacro:ctrl_wheel joint_name="middlewhl_l"/>
+            <xacro:ctrl_wheel joint_name="middlewhl_r"/>
+            <xacro:ctrl_wheel joint_name="backwhl_l"/>
+            <xacro:ctrl_wheel joint_name="backwhl_r"/>
+        </ros2_control>
+    </xacro:if>
+</robot>
