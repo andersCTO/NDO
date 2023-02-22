@@ -66,7 +66,7 @@
             <inertial>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <mass value="0.2"/>
-                <inertia ixx="0.00024" ixy="0" ixz="0" iyy="0.00036" iyz="0" izz="0.00024"/>
+                <inertia ixx="0.0003969" ixy="0" ixz="0" iyy="0.00025845" iyz="0" izz="0.00025845"/>
             </inertial>
         </link>
 
@@ -95,7 +95,7 @@
             <mu2 value="0.2"/>
             <kp value="1.0E12"/>
             <kd value="1.0"/>
-            <fdir1 value="0 1 0"/>
+            <fdir1 value="1 0 0"/>
             <minDepth>0.005</minDepth>
         </gazebo>
 
