@@ -1,11 +1,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo">
 
-    <!-- Include parts -->
+    <!-- Include macros -->
     <xacro:include filename="$(find ndo_description)/urdf/wheel.urdf.xacro"/>
 
-    <!-- Include dynamics/controller/materials -->
-    <xacro:include filename="$(find ndo_description)/urdf/materials.gazebo.xacro"/>
-    <xacro:include filename="$(find ndo_description)/urdf/ndo.gazebo.xacro"/>
+    <!-- Include controller -->
     <xacro:include filename="$(find ndo_description)/urdf/controller.xacro"/>
 
     <!-- Base properties -->
@@ -14,8 +12,10 @@
     <xacro:property name="base_height" value="0.072"/>
     <xacro:property name="footprint_zoff" value="${(0.135-base_height/2)}"/>
 
-    <xacro:property name="caster_xoff" value="0.14"/>
+    <!-- Spring properties -->
+    <xacro:property name="spring_stiffness" value="4"/>
 
+    <!-- Links and joints! -->
     <link name="base_link"/>
 
     <link name="body_link">
@@ -41,7 +41,12 @@
         </inertial>
     </link>
 
-    <!-- Base footprint of the robot which is the center reference -->
+    <!-- Base footprint of the robot which is the center reference. This should
+         probably be dynamic since the robot has a suspension system. You
+         always want the base_footprint to be at ground level to represent
+         the 2D view and that is not true if the footprint follows the suspension
+         "bouncing" of the robot. -->
+    <!-- TODO Should probably be dynamic since the robot has a suspension system -->
     <link name="base_footprint"/>
 
     <!-- Joint base_link with base_footprint to place it at ground level -->
@@ -57,13 +62,17 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
   
-    <xacro:wheel position="front" side="l"/>
-    <xacro:wheel position="front" side="r"/>
+    <!-- Create wheels -->
+    <xacro:wheel position="front" side="l" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
+    <xacro:wheel position="front" side="r" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
+    <xacro:wheel position="middle" side="l" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
+    <xacro:wheel position="middle" side="r" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
+    <xacro:wheel position="back" side="l" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
+    <xacro:wheel position="back" side="r" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
 
-    <xacro:wheel position="middle" side="l"/>
-    <xacro:wheel position="middle" side="r"/>
 
-    <xacro:wheel position="back" side="l"/>
-    <xacro:wheel position="back" side="r"/>
+    <gazebo reference="body_link">
+        <material>Gazebo/Turquoise</material>
+    </gazebo>
 
 </robot>

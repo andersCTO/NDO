@@ -1,5 +1,5 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_wheel">
-    <xacro:macro name="wheel" params="position side">
+    <xacro:macro name="wheel" params="position side spring_stiffness spring_reference">
         <xacro:property name="wheel_radius" value="0.063"/>
         <xacro:property name="wheel_width" value="0.06"/>
         <xacro:property name="wheel_conn_depth" value="0.013"/>
@@ -99,8 +99,11 @@
             <minDepth>0.005</minDepth>
         </gazebo>
 
-        <gazebo reference="${prefix}_adptr_link">
+        <gazebo reference="${prefix}_adptr_joint">
             <material>Gazebo/DarkYellow</material>
+            <implicitSpringDamper>true</implicitSpringDamper>
+            <springStiffness>${spring_stiffness}</springStiffness>
+            <springReference>${spring_reference}</springReference>
         </gazebo>
     </xacro:macro>
 </robot>

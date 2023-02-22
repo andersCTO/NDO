@@ -1,5 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_ctrl">
     <xacro:arg name="use_sim_ctrl" default="false"/>
+
     <xacro:macro name="ctrl_wheel" params="joint_name">
         <joint name="${joint_name}_joint">
             <command_interface name="velocity">
@@ -21,6 +22,13 @@
 
     <xacro:if value="$(arg use_sim_ctrl)">
         <!-- Gazebo simulation controller -->
+        <gazebo>        
+            <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+                <robot_param>robot_description</robot_param>
+                <robot_param_node>robot_state_publisher</robot_param_node>
+                <parameters>$(find ndo_controller)/config/controllers.yaml</parameters>
+            </plugin>
+        </gazebo>
         <ros2_control name="GazeboSystem" type="system">
             <hardware>
                 <plugin>gazebo_ros2_control/GazeboSystem</plugin>
