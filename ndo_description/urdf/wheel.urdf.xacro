@@ -1,5 +1,5 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_wheel">
-    <xacro:macro name="wheel" params="position side spring_stiffness spring_reference">
+    <xacro:macro name="wheel" params="position side">
         <xacro:property name="wheel_radius" value="0.063"/>
         <xacro:property name="wheel_width" value="0.06"/>
         <xacro:property name="wheel_conn_depth" value="0.013"/>
@@ -85,25 +85,5 @@
             <origin xyz="0 ${y_reflect*(0.062+wheel_width/2-wheel_conn_depth)} 0" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
         </joint>
-
-        
-        <!-- Physical properties for the wheels -->
-        <!-- Reference https://www.engineeringtoolbox.com/friction-coefficients-d_778.html -->
-        <gazebo reference="${prefix}_link">
-            <material>Gazebo/FlatBlack</material>
-            <mu1 value="1.0"/>
-            <mu2 value="0.2"/>
-            <kp value="1.0E12"/>
-            <kd value="1.0"/>
-            <fdir1 value="1 0 0"/>
-            <minDepth>0.005</minDepth>
-        </gazebo>
-
-        <gazebo reference="${prefix}_adptr_joint">
-            <material>Gazebo/DarkYellow</material>
-            <implicitSpringDamper>true</implicitSpringDamper>
-            <springStiffness>${spring_stiffness}</springStiffness>
-            <springReference>${spring_reference}</springReference>
-        </gazebo>
     </xacro:macro>
 </robot>

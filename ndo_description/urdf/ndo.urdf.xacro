@@ -1,10 +1,14 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo">
 
+    <xacro:arg name="use_sim_ctrl" default="false"/>
+
     <!-- Include macros -->
     <xacro:include filename="$(find ndo_description)/urdf/wheel.urdf.xacro"/>
 
     <!-- Include controller -->
-    <xacro:include filename="$(find ndo_description)/urdf/controller.xacro"/>
+    <xacro:unless value="$(arg use_sim_ctrl)">
+        <xacro:include filename="$(find ndo_description)/urdf/diff_drive.xacro"/>
+    </xacro:unless>
 
     <!-- Base properties -->
     <xacro:property name="base_width" value="0.12"/>
@@ -63,16 +67,12 @@
     </joint>
   
     <!-- Create wheels -->
-    <xacro:wheel position="front" side="l" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
-    <xacro:wheel position="front" side="r" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
-    <xacro:wheel position="middle" side="l" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
-    <xacro:wheel position="middle" side="r" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
-    <xacro:wheel position="back" side="l" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
-    <xacro:wheel position="back" side="r" spring_stiffness="${spring_stiffness}" spring_reference="0"/>
+    <xacro:wheel position="front" side="l"/>
+    <xacro:wheel position="front" side="r"/>
+    <xacro:wheel position="middle" side="l"/>
+    <xacro:wheel position="middle" side="r"/>
+    <xacro:wheel position="back" side="l"/>
+    <xacro:wheel position="back" side="r"/>
 
-
-    <gazebo reference="body_link">
-        <material>Gazebo/Turquoise</material>
-    </gazebo>
 
 </robot>
