@@ -36,7 +36,8 @@
         <inertial>
             <origin xyz="-0.00275 0 0" rpy="0 0 0"/>
             <mass value="2.5"/>
-            <inertia izz="0.014021" ixy="0.0" ixz="0.0" iyy="0.012708" iyz="0.0" ixx="0.0046875"/>
+            <!-- Calculated inertia assumes that the body is a Cuboid -->
+            <inertia izz="0.031163" ixy="0.0" ixz="0.0" iyy="0.00408" iyz="0.0" ixx="0.033083"/>
         </inertial>
     </link>
 
