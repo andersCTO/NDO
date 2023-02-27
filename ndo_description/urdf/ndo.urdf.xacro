@@ -53,6 +53,25 @@
     <!-- TODO Should probably be dynamic since the robot has a suspension system -->
     <link name="base_footprint"/>
 
+    <link name="imu_link">
+        <visual>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.6666666666666668e-7" ixy="0.0" ixz="0.0" iyy="1.6666666666666668e-7" iyz="0.0" izz="1.6666666666666668e-7"/>
+        </inertial>
+    </link>
+
     <!-- Joint base_link with base_footprint to place it at ground level -->
     <joint name="base_joint" type="fixed">
         <parent link="base_footprint"/>
@@ -60,10 +79,16 @@
         <origin xyz="0.0 0.0 ${footprint_zoff}" rpy="0 0 0"/>
     </joint>
 
-    <joint name="body_link" type="fixed">
+    <joint name="body_joint" type="fixed">
         <parent link="base_link"/>
         <child link="body_link"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="imu_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="imu_link"/>
+        <origin xyz="0.1 0.04 0.02" rpy="0 0 0"/>
     </joint>
   
     <!-- Create wheels -->
