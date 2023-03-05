@@ -1,5 +1,7 @@
 <launch>
 
+    <arg name="out" default="cmd_vel"/>
+
     <let name="config_locks"  value="$(find-pkg-share ndo_teleop)/config/twist_mux_locks.yaml"/>
     <let name="config_topics" value="$(find-pkg-share ndo_teleop)/config/twist_mux_topics.yaml"/>
 
@@ -12,6 +14,6 @@
     <node pkg="twist_mux" exec="twist_mux" name="twist_mux" output="screen">
         <param from="$(var config_locks)"/>
         <param from="$(var config_topics)"/>
-        <remap from="cmd_vel_out" to="cmd_vel"/>
+        <remap from="cmd_vel_out" to="$(var out)"/>
     </node>
 </launch>

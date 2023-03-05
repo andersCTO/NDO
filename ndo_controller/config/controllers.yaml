@@ -1,0 +1,66 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz
+
+    diff_ctrl:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    imu_broad:
+      type: imu_sensor_broadcaster/IMUSensorBroadcaster
+
+diff_ctrl:
+  ros__parameters:
+    publish_rate: 50.0
+    base_frame_id: base_footprint
+    left_wheel_names:
+      - frontwhl_l_joint
+      - middlewhl_l_joint
+      - backwhl_l_joint
+    right_wheel_names:
+      - frontwhl_r_joint
+      - middlewhl_r_joint
+      - backwhl_r_joint
+    wheel_separation: 0.158
+    wheel_radius: 0.063
+    wheels_per_side: 3
+
+    open_loop: true
+    enable_odom_tf: false
+    position_feedback: true
+
+    cmd_vel_timeout: 0.5
+    use_stamped_vel: false
+
+    # TODO update covariance to better estimates
+    pose_covariance_diagonal:  [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+
+    # Velocity and acceleration limits
+    # Whenever a min_* is unspecified, default to -max_*
+    linear.x.has_velocity_limits: true
+    linear.x.has_acceleration_limits: true
+    linear.x.has_jerk_limits: false
+    linear.x.max_velocity: 1.5
+    linear.x.max_acceleration: 2.0
+    linear.x.max_jerk: 0.0
+    linear.x.min_jerk: 0.0
+
+    angular.z.has_velocity_limits: true
+    angular.z.has_acceleration_limits: true
+    angular.z.has_jerk_limits: false
+    angular.z.max_velocity: 4.71
+    angular.z.max_acceleration: 9.42
+    angular.z.max_jerk: 0.0
+    angular.z.min_jerk: 0.0
+
+#joint_broad:
+#  ros__parameters:
+
+imu_broad:
+  ros__parameters:
+    frame_id: imu_link
+    sensor_name: ndo_imu_sensor
+

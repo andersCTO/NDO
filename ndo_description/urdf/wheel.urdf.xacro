@@ -1,0 +1,89 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_wheel">
+    <xacro:macro name="wheel" params="position side">
+        <xacro:property name="wheel_radius" value="0.063"/>
+        <xacro:property name="wheel_width" value="0.06"/>
+        <xacro:property name="wheel_conn_depth" value="0.013"/>
+        <xacro:property name="wheel_adapter_x" value="0.15"/>
+        <xacro:property name="wheel_adapter_y" value="0.03"/>
+        <xacro:property name="wheel_zoff" value="-0.025"/>
+
+        <xacro:property name="prefix" value="${position}whl_${side}"/>
+        <xacro:if value="${side == 'l'}">
+            <xacro:property name="y_reflect" value="1"/>
+        </xacro:if>
+        <xacro:if value="${side == 'r'}">
+            <xacro:property name="y_reflect" value="-1"/>
+        </xacro:if>
+        <xacro:if value="${position == 'front'}">
+            <xacro:property name="x_reflect" value="1"/>
+            <xacro:property name="z_offset" value="${wheel_zoff}"/>
+        </xacro:if>
+        <xacro:if value="${position == 'middle'}">
+            <xacro:property name="x_reflect" value="0"/>
+            <xacro:property name="z_offset" value="${wheel_zoff-0.01}"/>
+        </xacro:if>
+        <xacro:if value="${position == 'back'}">
+            <xacro:property name="x_reflect" value="-1"/>
+            <xacro:property name="z_offset" value="${wheel_zoff}"/>
+        </xacro:if>
+
+        <link name="${prefix}_adptr_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="${y_reflect*-pi/2} 0 0"/>
+                <geometry>
+                    <!--<cylinder radius="${wheel_radius}" length="${wheel_width}"/>-->
+                    <mesh filename="file://$(find ndo_description)/mesh/wheel_adapter.stl"/>
+                </geometry>
+                <material name="Gray">
+                    <color rgba="0.5 0.5 0.5 1.0"/>
+                </material>
+            </visual>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.2"/>
+                <inertia ixx="8.4842761417e-05" ixy="-3.5206662807e-09" ixz="-8.7257106991e-09" iyy="1.2329460329e-04" iyz="5.1535165447e-09" izz="6.9099655771e-05"/>
+            </inertial>
+        </link>
+
+        
+        <link name="${prefix}_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="${y_reflect*-pi/2} 0 0"/>
+                <geometry>
+                    <!--<cylinder radius="${wheel_radius}" length="${wheel_width}"/>-->
+                    <mesh filename="file://$(find ndo_description)/mesh/wheel.stl"/>
+                </geometry>
+                <material name="Gray">
+                <color rgba="0.5 0.5 0.5 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="${y_reflect*-pi/2} 0 0"/>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.2"/>
+                <inertia ixx="0.0003969" ixy="0" ixz="0" iyy="0.00025845" iyz="0" izz="0.00025845"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}_adptr_joint" type="revolute">
+            <parent link="base_link"/>
+            <child link="${prefix}_adptr_link"/>
+            <origin xyz="${x_reflect*wheel_adapter_x} ${y_reflect*wheel_adapter_y} ${z_offset}" rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <dynamics damping="0.7" friction="0.1"/>
+            <limit lower="-0.28" upper="${pi/4}" effort="30" velocity="${pi/4}"/>
+        </joint>
+
+        <joint name="${prefix}_joint" type="continuous">
+            <parent link="${prefix}_adptr_link"/>
+            <child link="${prefix}_link"/>
+            <origin xyz="0 ${y_reflect*(0.062+wheel_width/2-wheel_conn_depth)} 0" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+        </joint>
+    </xacro:macro>
+</robot>

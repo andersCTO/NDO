@@ -1,0 +1,20 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo_diff_drive">
+    <!-- TODO PUT REAL CONTROLLER HERE -->
+    <!--
+    <xacro:include filename="$(find ndo_description)/urdf/joint_control.xacro"/>
+    <xacro:property name="min_vel" value="-10"/>
+    <xacro:property name="max_vel" value="10"/>
+    <ros2_control name="NDOCtrlSystem" type="system">
+        <hardware>
+            <plugin>PUT HW INTERFACE HERE</plugin>
+        </hardware>
+
+        <xacro:wheel_joint_control joint_prefix="frontwhl_l" min_vel="${min_vel}" max_vel="${max_vel}"/>
+        <xacro:wheel_joint_control joint_prefix="frontwhl_r" min_vel="${min_vel}" max_vel="${max_vel}"/>
+        <xacro:wheel_joint_control joint_prefix="middlewhl_l" min_vel="${min_vel}" max_vel="${max_vel}"/>
+        <xacro:wheel_joint_control joint_prefix="middlewhl_r" min_vel="${min_vel}" max_vel="${max_vel}"/>
+        <xacro:wheel_joint_control joint_prefix="backwhl_l" min_vel="${min_vel}" max_vel="${max_vel}"/>
+        <xacro:wheel_joint_control joint_prefix="backwhl_r" min_vel="${min_vel}" max_vel="${max_vel}"/>
+    </ros2_control>
+    -->
+</robot>

@@ -1,0 +1,103 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ndo">
+
+    <xacro:arg name="use_sim_ctrl" default="false"/>
+
+    <!-- Include macros -->
+    <xacro:include filename="$(find ndo_description)/urdf/wheel.urdf.xacro"/>
+
+    <!-- Include controller -->
+    <xacro:unless value="$(arg use_sim_ctrl)">
+        <xacro:include filename="$(find ndo_description)/urdf/diff_drive.xacro"/>
+    </xacro:unless>
+
+    <!-- Base properties -->
+    <xacro:property name="base_width" value="0.12"/>
+    <xacro:property name="base_length" value="0.38"/>
+    <xacro:property name="base_height" value="0.072"/>
+    <xacro:property name="footprint_zoff" value="${(0.135-base_height/2)}"/>
+
+    <!-- Spring properties -->
+    <xacro:property name="spring_stiffness" value="4"/>
+
+    <!-- Links and joints! -->
+    <link name="base_link"/>
+
+    <link name="body_link">
+        <visual>
+            <geometry>
+                <!-- <box size="${base_length} ${base_width} ${base_height}"/> -->
+                <mesh filename="file://$(find ndo_description)/mesh/base.stl"/>
+            </geometry>
+            <material name="Black">
+                <color rgba="0.2 0.2 0.2 1.0"/>
+            </material> 
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.00275 0 0" rpy="0 0 0"/>
+            <mass value="2.5"/>
+            <!-- Calculated inertia assumes that the body is a Cuboid -->
+            <inertia izz="0.031163" ixy="0.0" ixz="0.0" iyy="0.00408" iyz="0.0" ixx="0.033083"/>
+        </inertial>
+    </link>
+
+    <!-- Base footprint of the robot which is the center reference. This should
+         probably be dynamic since the robot has a suspension system. You
+         always want the base_footprint to be at ground level to represent
+         the 2D view and that is not true if the footprint follows the suspension
+         "bouncing" of the robot. -->
+    <!-- TODO Should probably be dynamic since the robot has a suspension system -->
+    <link name="base_footprint"/>
+
+    <link name="imu_link">
+        <visual>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <inertia ixx="1.6666666666666668e-7" ixy="0.0" ixz="0.0" iyy="1.6666666666666668e-7" iyz="0.0" izz="1.6666666666666668e-7"/>
+        </inertial>
+    </link>
+
+    <!-- Joint base_link with base_footprint to place it at ground level -->
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0.0 0.0 ${footprint_zoff}" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="body_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="body_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="imu_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="imu_link"/>
+        <origin xyz="0.1 0.04 0.02" rpy="0 0 0"/>
+    </joint>
+  
+    <!-- Create wheels -->
+    <xacro:wheel position="front" side="l"/>
+    <xacro:wheel position="front" side="r"/>
+    <xacro:wheel position="middle" side="l"/>
+    <xacro:wheel position="middle" side="r"/>
+    <xacro:wheel position="back" side="l"/>
+    <xacro:wheel position="back" side="r"/>
+
+
+</robot>
